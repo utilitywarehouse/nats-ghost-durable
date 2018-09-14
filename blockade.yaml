@@ -1,0 +1,19 @@
+containers:
+  nats-streaming:
+    image: nats-streaming-exp
+    hostname: natss
+    expose: [4222]
+    volumes:
+      "/tmp/nats": "/data"
+
+  pub:
+    image: nats-pub
+    links: {nats-streaming: master}
+
+  sub:
+    image: nats-sub
+    links: {nats-streaming: master}
+    count: 10
+
+network:
+  flaky: 80%
