@@ -1,6 +1,6 @@
 # nats-ghost-durable
 
-Designed to highlight nats-streaming loosing a durable subscription under certain partitioning.
+Designed to highlight nats-streaming losing a durable subscription under certain partitioning.
 
 ## setup
 
