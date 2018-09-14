@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	clientID    = "test-publisher"
+	clientID    = "test-subscriber"
 	clusterID   = "test-cluster"
 	subject     = "test_subject"
 	natsURL     = "nats://natss:4222"
