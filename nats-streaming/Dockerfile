@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk --no-cache add wget ca-certificates && \
-  wget https://github.com/nats-io/nats-streaming-server/releases/download/v0.10.2/nats-streaming-server-v0.10.2-linux-amd64.zip && \
+  wget https://github.com/nats-io/nats-streaming-server/releases/download/v0.11.0/nats-streaming-server-v0.11.0-linux-amd64.zip && \
   unzip nats-streaming-server-v0.11.0-linux-amd64.zip && \
   mv nats-streaming-server-v0.11.0-linux-amd64/nats-streaming-server /
 
