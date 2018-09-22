@@ -1,9 +1,14 @@
 FROM alpine:latest
 
-RUN apk --no-cache add wget ca-certificates && \
-  wget https://github.com/nats-io/nats-streaming-server/releases/download/v0.11.0/nats-streaming-server-v0.11.0-linux-amd64.zip && \
-  unzip nats-streaming-server-v0.11.0-linux-amd64.zip && \
-  mv nats-streaming-server-v0.11.0-linux-amd64/nats-streaming-server /
+ENV GOPATH /go
+
+RUN apk --no-cache add gcc musl-dev git ca-certificates go && \
+  mkdir /go && \
+  go get github.com/nats-io/nats-streaming-server && \
+  cd /go/src/github.com/nats-io/nats-streaming-server && \
+  git checkout fix_ghost_durables && \
+  go build . && \
+  mv nats-streaming-server /
 
 EXPOSE 4222 8222
 
